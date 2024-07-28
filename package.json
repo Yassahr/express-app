@@ -14,7 +14,8 @@
     "dotenv": "^8.6.0",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
-    "mongodb": "^3.7.4"
+    "mongodb": "^3.7.4",
+    "mongoose": "^8.5.1"
   },
   "description": "",
   "devDependencies": {

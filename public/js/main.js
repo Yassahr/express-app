@@ -13,11 +13,11 @@ async function deleteRapper(){
     const sName = this.parentNode.childNodes[1].innerText
     const bName = this.parentNode.childNodes[3].innerText
     try{
-        const response = await fetch('deleteRapper', {
+        const response = await fetch('deleteRapper', { // Change the name of the route 
             method: 'delete',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-              'stageNameS': sName,
+              'stageNameS': sName, //change the way these names are in the /delete rapper route in server
               'birthNameS': bName
             })
           })
@@ -39,8 +39,8 @@ async function addLike(){
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-              'stageNameS': sName,
-              'birthNameS': bName,
+              'cosplay': sName, //confirm names are the same in the /addOneLike route
+              'char': bName,
               'likesS': tLikes
             })
           })
