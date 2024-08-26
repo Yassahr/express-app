@@ -25,7 +25,9 @@
             <span><%= info[i].cosplayerName %></span>
             <span><%= info[i].character %></span>
             <span><%= info[i].likes %></span>
-            <!-- <span><%= info[i].likes %></span> image -->
+            <% if (info[i].image){ %>
+                <img src="/<%= info[i].image %>" alt= "cosplayer submission">
+            <%} %>
             <span class='fa fa-thumbs-up'></span>
             <span class='fa fa-trash'></span>
         </li>
@@ -34,9 +36,10 @@
 
     <h2>Add A Cosplay</h2>
 
-    <form action="/addCosplayer" method="POST">
+    <form action="/addCosplayer" method="POST" enctype="multipart/form-data">
         <input type="text" placeholder="Cosplayer" name="cosplay">
         <input type="text" placeholder="Character" name="char">
+        <input type="file" name="cosImage" required>
         <input type="submit">
     </form>
     

@@ -1,8 +1,23 @@
-const express = require('express')
-const app = express()
-const MongoClient = require('mongodb').MongoClient
-const PORT = 2121
-require('dotenv').config()
+const express = require('express');
+const app = express();
+const path = require('path')
+const multer = require('multer');
+const storage= multer.diskStorage({
+    destination: (req, file, cb)=>{
+        cb(null, '/public/imgs')
+    },
+    filename: (req, file, cb)=>{
+        console.log(file)
+        cb(null, Date.now() + path.extname(file.originalname))
+    }
+})
+
+//creates the middleware and inside storage obj is the specifications
+const upload = multer({storage: storage});
+
+const MongoClient = require('mongodb').MongoClient;
+const PORT = 2121;
+require('dotenv').config();
 
 
 let db,
@@ -24,16 +39,18 @@ app.use(express.json())
 app.get('/',(request, response)=>{
     db.collection('cosplayers').find().sort({likes: -1}).toArray()
     .then(data => {
+        
         response.render('index.ejs', { info: data })
     })
     .catch(error => console.error(error))
 })
 
-app.post('/addCosplayer', (request, response) => {
+app.post('/addCosplayer',  upload.single('cosImage'),  (request, response) => {
     db.collection('cosplayers').insertOne({cosplayerName: request.body.cosplay,
-    character: request.body.char, likes: 0})
+    character: request.body.char, image: request.file.path, likes: 0})
+    
     .then(result => {
-        console.log('Cosplayer Added')
+        console.log('Cosplayer Added', request.file)
         response.redirect('/')
     })
     .catch(error => console.error(error))
