@@ -4,7 +4,7 @@
 <h1 align="center"><a href="https://github.com/Yassahr/express-app">Best Cosplayer Tally</a></h1> 
 <image src="#">
 <!-- Description -->
-<h3 align="left">This is a repository of Cosplay fullstack application. It allows users to add their favorite cosplayer's name, character and an image of the cosplay. Users are also able to upvote their favorite cosplays and delete submissions</h3>
+<h3 align="left">This is a repository of Cosplay fullstack application with DB. It allows users to add their favorite cosplayer's name, character and an image of the cosplay. Users are also able to upvote their favorite cosplays and delete submissions</h3>
 <!-- Tech Used -->
 </p>
 <h2 align="left" display="inline">Languages and Tools:</h3>
@@ -17,11 +17,13 @@
  <a href="https://expressjs.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/> </a>
 </p>
 <!-- Optimizations -->
-<h2 align="left">Optimizations:</h3>
+<h2 align="left">Optimizations:</h2>
 <ul>
     <li>Addition of user authorization so the same user cannot vote multiple times. </li>
     <li>Ability to add multiple photo for each cosplay submission</li>
     <li>IFrame of the cosplayers instagram-to help the artist's popularity </li>
+    <li>Storing images in Db instead of storing on local device</li>
+
 </ul>
 <!-- Lessons Learned -->
 <h2 align="left">Lessons Learned:</h3>
